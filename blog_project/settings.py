@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # 3rd-party app
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_swagger',
     'rest_auth',
     'allauth',
     'allauth.account',
@@ -108,6 +109,12 @@ REST_FRAMEWORK = {
         ],
 }
 
+SWAGGER_SETTINGS = {
+        'LOGIN_URL': 'rest_framework:login',
+        'LOGOUT_URL': 'rest_framework:logout',
+}
+
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
 # Internationalization
